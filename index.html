@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Removido "maximum-scale=1.0": permite zoom (acessibilidade) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Oficina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Cabeçalho -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-name" id="brandName">Painel</div>
+        <div class="brand-tag">Instalações · Climatização</div>
+      </div>
+      <div class="topbar-right">
+        <span class="pulse" title="Dados salvos neste navegador"></span>
+      </div>
+    </header>
+
+    <!-- Conteúdo: cada tela é uma <section> (SPA: só uma fica visível) -->
+    <main>
+      <section class="view" id="view-dashboard" aria-label="Painel"></section>
+      <section class="view" id="view-clients" aria-label="Clientes"></section>
+      <section class="view" id="view-services" aria-label="Serviços"></section>
+      <section class="view" id="view-budgets" aria-label="Orçamentos"></section>
+      <section class="view" id="view-materials" aria-label="Materiais"></section>
+      <section class="view" id="view-tech" aria-label="Calculadoras técnicas"></section>
+      <section class="view" id="view-archive" aria-label="Arquivos"></section>
+      <section class="view" id="view-config" aria-label="Empresa e configurações"></section>
+    </main>
+
+    <footer class="site-footer">
+      F.Moraes Instalações e Climatização · Corbélia–PR<br>
+      Dados salvos apenas neste dispositivo (localStorage).<br>
+      <a href="https://open-meteo.com/" target="_blank" rel="noopener">Weather data by Open-Meteo.com</a> ·
+      Cotações: AwesomeAPI · CEP: ViaCEP
+    </footer>
+
+    <div class="fab-anchor"><div class="fab-anchor-inner"><button class="fab" id="fabBtn" type="button" aria-label="Adicionar">+</button></div></div>
+
+    <nav class="tabbar" aria-label="Navegação principal">
+      <div class="tabbar-inner" id="tabbarInner"></div>
+    </nav>
+  </div>
+
+  <!-- Janela deslizante: o <form> é montado dentro dela por JS -->
+  <div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <input type="file" id="importFile" accept=".json">
+
+  <!-- Biblioteca de PDF (local, funciona offline) -->
+  <script src="libs/jspdf.umd.min.js"></script>
+  <!-- Módulos do app (ordem importa: todos compartilham o escopo global) -->
+  <script src="js/seed.js"></script>
+  <script src="js/logo.js"></script>
+  <script src="js/cabos-dados.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/calculos.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/pdf.js"></script>
+  <script src="js/telas-base.js"></script>
+  <script src="js/telas-tecnico.js"></script>
+  <script src="js/inspecao.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Backups do app (têm clientes reais e a chave da API)
+backup_*.json
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
